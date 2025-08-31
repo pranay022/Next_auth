@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
+import { IUser } from "@/types";
 
-
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema<IUser>({
     username: {
         type: String,
         required: [true, "please provide a username"],
@@ -15,7 +15,6 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, "please provide a password"],
-        unique: true,
     },
     isVerified: {
         type: Boolean,
@@ -27,10 +26,10 @@ const userSchema = new mongoose.Schema({
     },
     forgotPasswordToken: String,
     forgotPasswordTokenExpiry: Date,
-    verifyToken: Date,
+    verifyToken: String,
     verifyTokenExpiry: Date,
 })
 
-const User = mongoose.models.users || mongoose.model("User", userSchema);
+const User = mongoose.models.User || mongoose.model<IUser>("User", userSchema);
 
 export default User;

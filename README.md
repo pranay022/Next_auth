@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Authentication System
+
+This is a [Next.js](https://nextjs.org) project that implements a custom authentication system with MongoDB integration, featuring user registration, login, email verification, and password reset functionality.
 
 ## Getting Started
 
@@ -16,7 +18,25 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Setup
+
+Before running the project, you need to set up your environment variables:
+
+1. Copy `env.example` to `.env.local`
+2. Update the following variables:
+   - `MONGO_URI`: Your MongoDB connection string
+   - `TOKEN_SECRET`: A secure random string for JWT signing
+   - `DOMAIN`: Your application domain (e.g., http://localhost:3000)
+   - `SMTP_*`: Your email service credentials
+
+## Features
+
+- 🔐 Custom JWT-based authentication
+- 📧 Email verification system
+- 🔒 Password reset functionality
+- 🛡️ Protected routes with middleware
+- 🗄️ MongoDB integration with Mongoose
+- 📱 Responsive UI with Tailwind CSS
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
